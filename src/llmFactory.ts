@@ -4,7 +4,6 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export function getLLM() {
-  // Default to gpt4free if not specified
   const provider = (process.env.LLM_PROVIDER || "gpt4free").toLowerCase();
 
   console.log(`🤖 LLM Provider Active: [${provider.toUpperCase()}]`);
@@ -18,7 +17,7 @@ export function getLLM() {
       configuration: {
         baseURL: process.env.G4F_BASE_URL || "http://127.0.0.1:1337/v1",
       },
-      apiKey: "dummy-key-for-g4f" // g4f doesn't require a real key
+      apiKey: "dummy-key-for-g4f"
     });
   }
   
@@ -33,12 +32,35 @@ export function getLLM() {
   if (provider === "groq") {
     // Groq is free and very fast, uses OpenAI compatible endpoint
     return new ChatOpenAI({
-      modelName: "llama3-70b-8192", // Example Groq model
+      modelName: "llama-3.1-8b-instant", // High rate limit on free tier
       temperature: 0.1,
       configuration: {
         baseURL: "https://api.groq.com/openai/v1",
       },
       apiKey: process.env.GROQ_API_KEY || "missing-groq-key"
+    });
+  }
+
+  if (provider === "atomesus") {
+    return new ChatOpenAI({
+      modelName: "cipher", // Atomesus specific model
+      temperature: 0.1,
+      configuration: {
+        baseURL: process.env.ATOMESUS_BASE_URL || "https://api.atomesus.com/v1",
+      },
+      apiKey: process.env.ATOMESUS_API_KEY || "missing-key"
+    });
+  }
+
+  if (provider === "iamhc") {
+    // NewAPI / OneAPI compatible proxy
+    return new ChatOpenAI({
+      modelName: "glm-4",
+      temperature: 0.1,
+      configuration: {
+        baseURL: process.env.IAMHC_BASE_URL || "https://api.iamhc.cn/v1",
+      },
+      apiKey: process.env.IAMHC_API_KEY || "missing-key"
     });
   }
 
