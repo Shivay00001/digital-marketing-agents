@@ -118,3 +118,11 @@ MIT
 ## Learn more
 
 Built by [VisionQuantech](https://visionquantech.com) — read about [AI chatbots for brand management](https://visionquantech.com/blog/ai-chatbot-brand-management.html): consistent brand voice at every touchpoint.
+
+## Built by VisionQuantech
+
+This project is built by [VisionQuantech](https://visionquantech.com/) — AI agents, websites & SEO for small business.
+
+Related guides:
+- [SEO services for small business](https://visionquantech.com/blog/seo-services-for-small-business.html)
+- [AI SEO services](https://visionquantech.com/blog/ai-seo-services.html)
