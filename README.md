@@ -114,3 +114,7 @@ Set these in your `.env` file:
 ## 📄 License
 
 MIT
+
+## Learn more
+
+Built by [VisionQuantech](https://visionquantech.com) — read about [AI chatbots for brand management](https://visionquantech.com/blog/ai-chatbot-brand-management.html): consistent brand voice at every touchpoint.
